@@ -26,7 +26,7 @@ public class PwdDaoImpl extends DBManager implements IPwdDao {
 	}
 
 	public List<Pwd> findAll() {
-		String sql = "select * from pwd";
+		String sql = "select * from hotel_pwd";
 		rs= getQuery(sql, null);
 		List<Pwd> lst = new ArrayList<Pwd>();
 		try {
@@ -61,12 +61,12 @@ public class PwdDaoImpl extends DBManager implements IPwdDao {
 		System.out.println(sql);
 		Pwd pwd2 = null;
 		rs = getQuery(sql, null);
+		System.out.println(rs);
 		try {
 			if(rs.next()) {
 				pwd2 = new Pwd(rs.getInt("pk"), userid, password);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeAll();

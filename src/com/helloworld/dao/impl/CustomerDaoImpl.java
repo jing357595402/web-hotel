@@ -69,7 +69,7 @@ public class CustomerDaoImpl extends DBManager implements ICustomerDao {
 	}
 
 	public List<Customer> findAll() {
-		String sql = "select * from customer";
+		String sql = "select * from hotel_customer";
 		List<Customer> list = new ArrayList<Customer>();
 		rs = getQuery(sql, null);
 		try {

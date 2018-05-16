@@ -14,7 +14,7 @@ public class DBManager {
 	private Connection getConn(){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306?web_hotel", "root", "123456");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/web_hotel", "root", "123456");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -61,7 +61,6 @@ public class DBManager {
 			}
 			rs = ps.executeQuery();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return rs;
