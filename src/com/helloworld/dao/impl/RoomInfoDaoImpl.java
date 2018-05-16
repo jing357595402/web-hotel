@@ -13,7 +13,7 @@ public class RoomInfoDaoImpl extends DBManager implements IRoomInfoDao {
 private ResultSet rs = null;
 
 public int save(RoomInfo roomInfo) {
-	String sql = "insert into roominfo (num,r_type_id,states,r_tel,remark)" +
+	String sql = "insert into hotel_roominfo (num,r_type_id,states,r_tel,remark)" +
 			"values(?,?,?,?,?)";
 	Object[] obj = new Object[]{roomInfo.getNum(),roomInfo.getR_type_id(),roomInfo.getStates(),roomInfo.getR_tel(),roomInfo.getRemark()};
 	int n = update(sql, obj);
@@ -26,7 +26,7 @@ public int save(RoomInfo roomInfo) {
 }
 
 public int update(RoomInfo roomInfo) {
-	String sql = "update roominfo set num = ?, r_type_id = ?, states = ?, r_tel = ?," +
+	String sql = "update hotel_roominfo set num = ?, r_type_id = ?, states = ?, r_tel = ?," +
 			"remark = ? where pk = ?";
 	Object[] obj = new Object[]{roomInfo.getNum(),roomInfo.getR_type_id(),roomInfo.getStates(),roomInfo.getR_tel(),roomInfo.getRemark(),roomInfo.getPk()};
 	int n = update(sql, obj);
@@ -39,7 +39,7 @@ public int update(RoomInfo roomInfo) {
 }
 
 public int delete(int pk) {
-	String sql = "update roominfo set states = 0 where pk = ?";
+	String sql = "update hotel_roominfo set states = 0 where pk = ?";
 	int n = update(sql, new Object[]{pk});
 	if(n != 0) {
 		System.out.println("更新房间信息成功！");
@@ -51,7 +51,7 @@ public int delete(int pk) {
 
 public RoomInfo findByPk(int pk) {
 	RoomInfo roomInfo = null;
-	String sql = "select * from roominfo where pk = ?";
+	String sql = "select * from hotel_roominfo where pk = ?";
 	rs = getQuery(sql, new Object[]{pk});
 	try {
 		if(rs.next()) {
@@ -65,7 +65,7 @@ public RoomInfo findByPk(int pk) {
 }
 
 public List<RoomInfo> findAll() {
-	String sql = "select * from roominfo";
+	String sql = "select * from hotel_roominfo";
 	List<RoomInfo> list = new ArrayList<RoomInfo>();
 	rs = getQuery(sql, null);
 	try {

@@ -13,13 +13,23 @@ public class DBManager {
 	
 	private Connection getConn(){
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306?web_hotel", "root", "123456");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+	
+	private Connection getConnSqlServer(){
+		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=hw", "sa", "123");
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return conn;
@@ -37,7 +47,6 @@ public class DBManager {
 				conn.close();
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -69,12 +78,15 @@ public class DBManager {
 			}
 			count = ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
 			closeAll();
 		}
 		return count;
+	}
+	public static void main(String[] args) {
+		Connection connection = new DBManager().getConn();
+		System.err.println(connection==null?"连接失败！-------------":"连接成功！-------------------");
 	}
 	
 }

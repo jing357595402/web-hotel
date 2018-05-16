@@ -14,7 +14,7 @@ public class CustomerDaoImpl extends DBManager implements ICustomerDao {
 	private ResultSet rs = null;
 	
 	public int save(Customer customer) {
-		String sql = "insert into customer (c_type_id, m_id, m_name, sex, zj_no, m_tel, remark)" +
+		String sql = "insert into hotel_customer (c_type_id, m_id, m_name, sex, zj_no, m_tel, remark)" +
 				"values(?,?,?,?,?,?,?)";
 		Object[] obj = new Object[]{customer.getC_type_id(),customer.getM_id(),customer.getM_name(),customer.getSex(),customer.getZj_no(),customer.getM_tel(),customer.getRemark()};
 		int n = update(sql,obj);
@@ -27,7 +27,7 @@ public class CustomerDaoImpl extends DBManager implements ICustomerDao {
 	}
 
 	public int delete(int pk) {
-		String sql = "delete from customer where pk = ?";
+		String sql = "delete from hotel_customer where pk = ?";
 		int n = update(sql,new Object[]{pk});
 		if(n != 0){
 			System.out.println("客户删除保存成功！");
@@ -38,7 +38,7 @@ public class CustomerDaoImpl extends DBManager implements ICustomerDao {
 	}
 
 	public int update(Customer customer) {
-		String sql = "update customer set c_type_id = ?, m_id = ?, m_name = ?, sex = ?, " +
+		String sql = "update hotel_customer set c_type_id = ?, m_id = ?, m_name = ?, sex = ?, " +
 				"zj_no = ?, m_tel = ?, remark = ? where pk = ?";
 		Object[] obj = new Object[]{customer.getC_type_id(),customer.getM_id(),customer.getM_name(),customer.getSex(),customer.getZj_no(),customer.getM_tel(),customer.getRemark(),customer.getPk()};
 		int n = update(sql,obj);
@@ -51,7 +51,7 @@ public class CustomerDaoImpl extends DBManager implements ICustomerDao {
 	}
 
 	public Customer findByPk(int pk) {
-		String sql = "select * from customer where pk = ?";
+		String sql = "select * from hotel_customer where pk = ?";
 		Customer customer = null;
 		rs = getQuery(sql, new Object[]{pk});
 		try {

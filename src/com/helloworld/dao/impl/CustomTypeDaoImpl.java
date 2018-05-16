@@ -14,7 +14,7 @@ public class CustomTypeDaoImpl extends DBManager implements ICustomerTypeDao{
 	private ResultSet rs = null;
 	
 	public int save(CustomerType customerType) {
-		String sql = "insert into customertype (id,c_type,discount,remark)" +
+		String sql = "insert into hotel_customertype (id,c_type,discount,remark)" +
 				"values(?,?,?,?)";
 		Object[] obj = new Object[]{customerType.getId(),customerType.getC_type(),customerType.getDiscount(),customerType.getRemark()};
 		int n = update(sql,obj);
@@ -28,7 +28,7 @@ public class CustomTypeDaoImpl extends DBManager implements ICustomerTypeDao{
 	}
 
 	public int delete(int pk) {
-		String sql = "delete from customertype where pk = ?";
+		String sql = "delete from hotel_customertype where pk = ?";
 		int n = update(sql,new Object[]{pk});
 		if(n != 0){
 			System.out.println("客户类型删除成功！");
@@ -39,7 +39,7 @@ public class CustomTypeDaoImpl extends DBManager implements ICustomerTypeDao{
 	}
 
 	public int update(CustomerType customerType) {
-		String sql = "update customertype set id = ?, c_type = ?, discount = ?, remark = ? where pk = ?";
+		String sql = "update hotel_customertype set id = ?, c_type = ?, discount = ?, remark = ? where pk = ?";
 		Object[] obj = new Object[]{customerType.getId(),customerType.getC_type(),customerType.getDiscount(),customerType.getRemark()};
 		int n = update(sql,obj);
 		if(n != 0){
@@ -51,7 +51,7 @@ public class CustomTypeDaoImpl extends DBManager implements ICustomerTypeDao{
 	}
 
 	public CustomerType findByPk(int pk) {
-		String sql = "select * from customertype where pk = ?";
+		String sql = "select * from hotel_customertype where pk = ?";
 		CustomerType customerType = null;
 		rs = getQuery(sql, new Object[]{pk});
 		try {
@@ -69,7 +69,7 @@ public class CustomTypeDaoImpl extends DBManager implements ICustomerTypeDao{
 	}
 
 	public List<CustomerType> findAll() {
-		String sql = "select * from customertype";
+		String sql = "select * from hotel_customertype";
 		List<CustomerType> list = new ArrayList<CustomerType>();
 		rs = getQuery(sql,null);
 		try {

@@ -16,7 +16,7 @@ public class EngageDaoImpl extends DBManager implements IEngageDao {
 	private ResultSet rs = null;
 	
 	public int save(Engage engage) {
-		String sql = "insert into engage (c_type_id, m_id, r_type_id, r_no, eng_time, remark)" +
+		String sql = "insert into hotel_engage (c_type_id, m_id, r_type_id, r_no, eng_time, remark)" +
 				"values(?,?,?,?,?,?)";
 		Object[] obj = new Object[]{engage.getC_type_id(),engage.getM_id(),engage.getR_type_id(),engage.getR_no(),engage.getEng_time(),engage.getRemark()};
 		int n = update(sql,obj);
@@ -29,7 +29,7 @@ public class EngageDaoImpl extends DBManager implements IEngageDao {
 	}
 
 	public Engage findByPk(int pk) {
-		String sql = "select * from engage where pk = ?";
+		String sql = "select * from hotel_engage where pk = ?";
 		Engage engage = null;
 		rs = getQuery(sql, new Object[]{pk});
 		try {
@@ -47,7 +47,7 @@ public class EngageDaoImpl extends DBManager implements IEngageDao {
 	}
 
 	public List<Engage> findAll() {
-		String sql = "select * from engage";
+		String sql = "select * from hotel_engage";
 		List<Engage> list = new ArrayList<Engage>();
 		rs = getQuery(sql, null);
 		try {

@@ -14,7 +14,7 @@ public class RoomTypeDaoImpl extends DBManager implements IRoomTypeDao {
 	private ResultSet rs = null;
 	
 	public int save(RoomType roomType) {
-		String sql = "insert into roomtype (id,roomtype,bed,price,foregift,cl_room,cl_price,remark)" +
+		String sql = "insert into hotel_roomtype (id,roomtype,bed,price,foregift,cl_room,cl_price,remark)" +
 				"values(?,?,?,?,?,?,?,?)";
 		Object[] obj = new Object[]{roomType.getId(),roomType.getRoomType(),roomType.getBed(),roomType.getPrice(),
 					roomType.getForegift(),roomType.getCl_room(),roomType.getCl_price(),roomType.getRemark()};
@@ -28,7 +28,7 @@ public class RoomTypeDaoImpl extends DBManager implements IRoomTypeDao {
 	}
 
 	public int update(RoomType roomType) {
-		String sql = "update roomtype set id = ?, roomtype = ?, bed = ?, price = ?," +
+		String sql = "update hotel_roomtype set id = ?, roomtype = ?, bed = ?, price = ?," +
 				"foregift = ?,cl_room = ?, cl_price = ?, remark = ? where pk = ?";
 		Object[] obj = new Object[]{roomType.getId(),roomType.getRoomType(),roomType.getBed(),roomType.getPrice(),
 				roomType.getForegift(),roomType.getCl_room(),roomType.getCl_price(),roomType.getRemark(),roomType.getPk()};
@@ -42,7 +42,7 @@ public class RoomTypeDaoImpl extends DBManager implements IRoomTypeDao {
 	}
 
 	public int delete(int pk) {
-		String sql = "delete from roomtype where pk = ?";
+		String sql = "delete from hotel_roomtype where pk = ?";
 		int n = update(sql,new Object[]{pk});
 		if(n != 0){
 			System.out.println("房间类型删除成功！");
@@ -53,7 +53,7 @@ public class RoomTypeDaoImpl extends DBManager implements IRoomTypeDao {
 	}
 
 	public RoomType findByPk(int pk) {
-		String sql = "select * from roomtype where pk = ?";
+		String sql = "select * from hotel_roomtype where pk = ?";
 		rs = getQuery(sql,new Object[]{pk});
 		RoomType roomType = null;
 		try {
@@ -71,7 +71,7 @@ public class RoomTypeDaoImpl extends DBManager implements IRoomTypeDao {
 
 	public List<RoomType> findAll() {
 		List<RoomType> list = new ArrayList<RoomType>();
-		String sql = "select * from roomtype";
+		String sql = "select * from hotel_roomtype";
 		rs = getQuery(sql,null);
 		try {
 			while(rs.next()) {
