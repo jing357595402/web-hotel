@@ -1,0 +1,26 @@
+酒店管理系统
+eclipse + jdk 1.8 + mysql5.7 + tomcat 7
+
+jsp + servlet3.0
+
+web 2.5---servlet需要在web.xml中配置
+web 3.0---servlet可以通过注解配置servlet，免去在web.xml的配置 
+
+当前版本
+
+项目原始为jsp+servlet设计
+
+项目原始版本将切换被到v1.0分支，master为发布分支
+
+升级计划 v1.1
+
+1、调整项目数据库为MySQL
+2、整理项目结构，将WebContent中的文件进行归类整理
+3、调整jsp架构，servlet完成数据处理，jsp显示数据，jsp中通过jstl+el表达式处理
+3、调整项目架构，为mvc三层架构，增加service层
+	表现层：servlet+jsp；业务逻辑层：service；数据层：dao
+4、调整架构为面相接口编程，提取dao层和service层接口
+
+
+升级详情见readme.md
+ 
