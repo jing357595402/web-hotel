@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@page import="com.helloworld.bean.Pwd"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,10 +8,6 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/admin/css/style.css" type="text/css" media="screen" title="default" />
 </head>
 <body>
-	<%
-		List<Pwd> lst = (List<Pwd>) request.getAttribute("userlist");
-	%>
-
 	<div id="content-outer">
 		<div id="content">
 			<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
@@ -32,11 +28,7 @@
 
 							<!--  start table-content  -->
 							<div id="table-content">
-
 								<!--  start message-yellow -->
-
-
-
 								<!--  start product-table ..................................................................................... -->
 
 								<form id="mainform" action="">
@@ -48,22 +40,19 @@
 											<th class="table-header-repeat line-left padtp">密 码</th>
 											<th class="table-header-options line-left padtp">操作</th>
 										</tr>
-										<%
-											for (Pwd pwd : lst) {
-										%>
-										<tr>
-											<td><input type="checkbox" /></td>
-											<td><%=pwd.getPk()%></td>
-											<td><%=pwd.getUserid()%></td>
-											<td><%=pwd.getPwd()%></td>
-											<td class="options-width"><a href="<%=request.getContextPath()%>/admin/html/user_add.jsp" title="Add"
-												class="icon-3 info-tooltip"></a> <a href="<%=request.getContextPath()%>/UserOneServlet?id=<%=pwd.getPk()%>" title="Update"
-												class="icon-1 info-tooltip"></a> <a href="<%=request.getContextPath()%>/UserDeleteServlet?id=<%=pwd.getPk()%>"
-												onclick="javascript:return confirm('确定删除该用户？')" title="Delete" class="icon-2 info-tooltip"></a></td>
-										</tr>
-										<%
-											}
-										%>
+										<c:forEach items="${userlist}" var="user">
+											<tr>
+												<td><input type="checkbox" /></td>
+												<td>${user.pk}</td>
+												<td>${user.userid}</td>
+												<td>${user.pwd}</td>
+												<td class="options-width"><a href="${pageContext.request.contextPath }/admin/html/user_add.jsp" title="Add"
+													lass="icon-3 info-tooltip"></a> <a href="${pageContext.request.contextPath}/UserOneServlet?id=${user.pk}" title="Update"
+													class="icon-1 info-tooltip"></a> <a href="${pageContext.request.contextPath}/UserDeleteServlet?id=${user.pk}"
+													onclick="javascript:return confirm('确定删除该用户？')" title="Delete" class="icon-2 info-tooltip" /></td>
+											</tr>
+										</c:forEach>
+
 									</table>
 									<!--  end product-table................................... -->
 								</form>

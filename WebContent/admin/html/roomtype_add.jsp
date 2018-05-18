@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Internet Dreams</title>
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" title="default" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/admin/css/style.css" type="text/css" media="screen" title="default" />
 
 </head>
 <body>
