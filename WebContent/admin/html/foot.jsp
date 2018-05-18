@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>酒店管理系统</title>
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" title="default" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/admin/css/style.css" type="text/css" media="screen" title="default" />
 </head>
 <body>
 <div id="footer">

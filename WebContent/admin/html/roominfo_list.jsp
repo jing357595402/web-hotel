@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Internet Dreams</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/admin/css/style.css" type="text/css" media="screen" title="default" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/admin/css/style.css" type="text/css" media="screen" title="default" />
 </head>
 <%
 	List<RoomInfo> lst = (List<RoomInfo>)request.getAttribute("roominfolist");
@@ -34,7 +34,7 @@
                       <tr>
                         <td align="right">标题：</td>
                         <td width="180px"> <input type="text" class="search_input"></td>
-                        <td align="left"><input type="image" src="../images/top_search_btn.gif"></td>
+                        <td align="left"><input type="image" src="${pageContext.request.contextPath }/admin/images/top_search_btn.gif"></td>
                       </tr>
                     </table>    </td>
 				</tr>
@@ -61,9 +61,9 @@
 					<td><%=roinfo.getStates() %></td>
 					<td><%=roinfo.getR_tel() %></td>
 					<td><%=roinfo.getRemark() %></td>
-					<td class="options-width"><a href="<%=request.getContextPath() %>/admin/html/roominfo_add.jsp" title="Add" class="icon-3 info-tooltip"></a>
-					  <a href="<%=request.getContextPath() %>/RoomInfoOneServlet?id=<%=roinfo.getPk() %>" title="Update" class="icon-1 info-tooltip"></a>
-				      <a href="<%=request.getContextPath() %>/RoomInfoDeleteServlet?id=<%=roinfo.getPk()%>" onclick="javascript:return confirm('确定删除该条信息？');" title="Delete" class="icon-2 info-tooltip"></a></td>
+					<td class="options-width"><a href="${pageContext.request.contextPath }/admin/html/roominfo_add.jsp" title="Add" class="icon-3 info-tooltip"></a>
+					  <a href="${pageContext.request.contextPath }/RoomInfoOneServlet?id=<%=roinfo.getPk() %>" title="Update" class="icon-1 info-tooltip"></a>
+				      <a href="${pageContext.request.contextPath }/RoomInfoDeleteServlet?id=<%=roinfo.getPk()%>" onclick="javascript:return confirm('确定删除该条信息？');" title="Delete" class="icon-2 info-tooltip"></a></td>
 				</tr>
 				<%} %>
 			<!-- 	<script type="text/javascript">

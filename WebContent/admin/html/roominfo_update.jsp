@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Internet Dreams</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/admin/css/style.css" type="text/css" media="screen" title="default" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/admin/css/style.css" type="text/css" media="screen" title="default" />
 
 </head>
 
@@ -19,11 +19,11 @@
   <div id="content">
     <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
       <tr>
-        <th rowspan="3" class="sized"><img src="../images/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+        <th rowspan="3" class="sized"><img src="${pageContext.request.contextPath }/admin/images/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
         <th class="topleft"></th>
         <td id="tbl-border-top">&nbsp;</td>
         <th class="topright"></th>
-        <th rowspan="3" class="sized"><img src="../images/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+        <th rowspan="3" class="sized"><img src="${pageContext.request.contextPath }/admin/images/side_shadowright.jpg" width="20" height="300" alt="" /></th>
       </tr>
       <tr>
         <td id="tbl-border-left"></td>
@@ -44,7 +44,7 @@
             <tr valign="top">
               <td>
               <!-- start id-form -->
-              <form action="<%=request.getContextPath() %>/RoomInfoUpdateServlet" method="post">
+              <form action="${pageContext.request.contextPath }/RoomInfoUpdateServlet" method="post">
               <table border="0" cellpadding="0" cellspacing="0"  id="id-form">
                <input value="<%=roomInfo.getPk() %>" name="roompk" type="hidden" />
                 <tr>

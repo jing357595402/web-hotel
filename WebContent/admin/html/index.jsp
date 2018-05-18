@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <title>老k酒店管理-后台</title>
-<link rel="icon" href="C:/Users/lenovo/Workspaces/MyEclipse 10/lkhotel/WebRoot/img2/timg-.ico" type="image/x-icon"/> 
-<link rel="shortcut icon" href="C:/Users/lenovo/Workspaces/MyEclipse 10/lkhotel/WebRoot/img2/timg-.ico" type="image/x-icon"/>
+<link rel="icon" href="${pageContext.request.contextPath }/portal/imgs/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/portal/imgs/favicon.ico" type="image/x-icon" />
 
 
 

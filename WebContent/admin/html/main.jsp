@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/admin/css/style.css" rel="stylesheet" type="text/css" />
 
 <script language="javascript">
 var Arraycolor=new Array("olive","teal","red","blue","maroon","navy","lime","fuschia","green","purple","gray","yellow","aqua","white","silver");

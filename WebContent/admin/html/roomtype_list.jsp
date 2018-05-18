@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Internet Dreams</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/admin/css/style.css" type="text/css" media="screen" title="default" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/admin/css/style.css" type="text/css" media="screen" title="default" />
 </head>
 <%
 	List<RoomType> lst = (List<RoomType>)request.getAttribute("roomtypelist");
@@ -35,7 +35,7 @@
                       <tr>
                         <td align="right">标题：</td>
                         <td width="180px"> <input type="text" class="search_input"></td>
-                        <td align="left"><input type="image" src="../images/top_search_btn.gif"></td>
+                        <td align="left"><input type="image" src="${pageContext.request.contextPath }/admin/images/top_search_btn.gif"></td>
                       </tr>
                     </table>    </td>
 				</tr>
@@ -68,9 +68,9 @@
 					<td><%=rotype.getCl_room() %></td>
 					<td><%=rotype.getCl_price()%></td>
 					<td><%=rotype.getRemark() %></td>
-					<td class="options-width"><a href="<%=request.getContextPath() %>/admin/html/roomtype_add.jsp" title="Add" class="icon-3 info-tooltip"></a>
-					  <a href="<%=request.getContextPath() %>/RoomTypeOneServlet?id=<%=rotype.getPk() %>" title="Update" class="icon-1 info-tooltip"></a>
-				    <a href="<%=request.getContextPath() %>/RoomTypeDeleteServlet?id=<%=rotype.getPk() %>" onclick="javascript:return confirm('确定删除该条信息')" title="Delete" class="icon-2 info-tooltip"></a></td>
+					<td class="options-width"><a href="${pageContext.request.contextPath }/admin/html/roomtype_add.jsp" title="Add" class="icon-3 info-tooltip"></a>
+					  <a href="${pageContext.request.contextPath }/RoomTypeOneServlet?id=<%=rotype.getPk() %>" title="Update" class="icon-1 info-tooltip"></a>
+				    <a href="${pageContext.request.contextPath }/RoomTypeDeleteServlet?id=<%=rotype.getPk() %>" onclick="javascript:return confirm('确定删除该条信息')" title="Delete" class="icon-2 info-tooltip"></a></td>
 				</tr>
 				<%} %>
 				</table>

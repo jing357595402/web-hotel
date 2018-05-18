@@ -5,33 +5,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../js/jquery-1.4.1.min.js"></script>
-<script type="text/javascript" src="../js/simpla.jquery.configuration.js"></script>
+<link href="${pageContext.request.contextPath }/admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${pageContext.request.contextPath }/admin/js/jquery-1.4.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/admin/js/simpla.jquery.configuration.js"></script>
 </head>
 <%
 	Pwd pwd = (Pwd)session.getAttribute("pwd");
  %>
 <body>
 <div id="sidebar"><div id="sidebar-wrapper">
-			<div id="profile-links" class="mypng"><img src="../images/logo.png"  />
+			<div id="profile-links" class="mypng"><img src="${pageContext.request.contextPath }/admin/images/logo.png"  />
           您好, <a href="#" title="Edit your profile"><%=pwd.getUserid() %></a>, <a href="#"  target="mainFrame">我的桌面</a><br />
 				<br />
-				<a href="<%=request.getContextPath() %>/index.jsp" title="官网首页" target="blank">查看网站</a> | <a href="../login.jsp" title="Sign Out" target="_top">退出登陆</a>            </div>        
+				<a href="${pageContext.request.contextPath }/index.jsp" title="官网首页" target="blank">查看网站</a> | <a href="../login.jsp" title="Sign Out" target="_top">退出登陆</a>            </div>        
 
 			<ul id="main-nav">
 				<li> 
 					<a href="#" class="nav-top-item ">用户管理</a>
 					<ul>
 						<li><a href="user_add.jsp" target="mainFrame">添加用户信息</a></li>
-						<li><a href="<%=request.getContextPath() %>/UserListServlet" target="mainFrame">用户信息列表</a></li> 
+						<li><a href="${pageContext.request.contextPath }/UserListServlet" target="mainFrame">用户信息列表</a></li> 
 					</ul>
 				</li>
 				<li>
 					<a href="#" class="nav-top-item">客房管理</a>
 					<ul>
 						<li><a href="roominfo_add.jsp" target="mainFrame">添加客房信息</a></li>
-						<li><a href="<%=request.getContextPath() %>/RoomInfoListServlet" target="mainFrame">客房信息列表</a></li>
+						<li><a href="${pageContext.request.contextPath }/RoomInfoListServlet" target="mainFrame">客房信息列表</a></li>
 						
 					</ul> 
 				</li>
@@ -39,14 +39,14 @@
 					<a href="#" class="nav-top-item">客房类别管理</a>
 					<ul>
 						<li><a href="roomtype_add.jsp" target="mainFrame">添加客房类别</a></li>
-						<li><a href="<%=request.getContextPath() %>/RoomTypeListServlet" target="mainFrame">客房类别列表</a></li>
+						<li><a href="${pageContext.request.contextPath }/RoomTypeListServlet" target="mainFrame">客房类别列表</a></li>
 					</ul>
 				</li>
 				<li>
 					<a href="#" class="nav-top-item">客户信息管理</a>
 					<ul>
 						<li><a href="customer_add.jsp" target="mainFrame">添加客户信息</a></li>
-						<li><a href="<%=request.getContextPath() %>/CustomerListServlet" target="mainFrame">客户信息列表</a></li>
+						<li><a href="${pageContext.request.contextPath }/CustomerListServlet" target="mainFrame">客户信息列表</a></li>
 					</ul>
 				</li>
 				
