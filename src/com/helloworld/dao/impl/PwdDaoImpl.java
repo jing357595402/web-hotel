@@ -14,7 +14,7 @@ public class PwdDaoImpl extends DBManager implements IPwdDao {
 	private ResultSet rs;
 
 	public int  delete(int id) {
-		String sql = "delete  from pwd where pk= ?";
+		String sql = "delete  from hotel_pwd where pk= ?";
 		Object[] obj = {id};
 		int i = update(sql, obj);
 		if(i>0) {
@@ -26,7 +26,7 @@ public class PwdDaoImpl extends DBManager implements IPwdDao {
 	}
 
 	public List<Pwd> findAll() {
-		String sql = "select * from pwd";
+		String sql = "select * from hotel_pwd";
 		rs= getQuery(sql, null);
 		List<Pwd> lst = new ArrayList<Pwd>();
 		try {
@@ -42,7 +42,7 @@ public class PwdDaoImpl extends DBManager implements IPwdDao {
 	}
 
 	public Pwd findById(int id) {
-		String sql = "select * from Pwd where pk = ?" ;
+		String sql = "select * from hotel_pwd where pk = ?" ;
 		rs = getQuery(sql, new Object[] {id});
 		Pwd pwd = null;
 		try {
@@ -57,16 +57,16 @@ public class PwdDaoImpl extends DBManager implements IPwdDao {
 	}
 
 	public Pwd findByNameAndPwd(String userid, String password) {
-		String sql = "select pk from pwd  where userid = '" + userid + "' and pwd = '" + password + "'";
+		String sql = "select pk from hotel_pwd  where userid = '" + userid + "' and pwd = '" + password + "'";
 		System.out.println(sql);
 		Pwd pwd2 = null;
 		rs = getQuery(sql, null);
+		System.out.println(rs);
 		try {
 			if(rs.next()) {
 				pwd2 = new Pwd(rs.getInt("pk"), userid, password);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeAll();
@@ -75,7 +75,7 @@ public class PwdDaoImpl extends DBManager implements IPwdDao {
 	}
 
 	public int save(Pwd pwd) {
-		String sql = "insert into pwd(userid,pwd) values ('"+ pwd.getUserid()+"','"+ pwd.getPwd() +"')";
+		String sql = "insert into hotel_pwd (userid,pwd) values ('"+ pwd.getUserid()+"','"+ pwd.getPwd() +"')";
 		int a = -1;
 		a = update(sql, null);
 		if(a>0) {
@@ -87,7 +87,7 @@ public class PwdDaoImpl extends DBManager implements IPwdDao {
 	}
 
 	public int update(Pwd pwd) {
-		String sql = "update pwd set userid = ?,pwd = ? where pk = ?";
+		String sql = "update hotel_pwd set userid = ?,pwd = ? where pk = ?";
 		System.out.println(sql);
 		Object obj[] = new Object[] {pwd.getUserid(), pwd.getPwd(), pwd.getPk()};
 		int i = update(sql, obj);

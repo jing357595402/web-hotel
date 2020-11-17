@@ -9,7 +9,7 @@ import com.helloworld.db.DBManager;
 public class LiveInDaoImpl extends DBManager implements ILiveInDao {
 
 	public int save(LiveIn liveIn) {
-		String sql = "insert into livein (in_no,r_no,r_type_id,c_type_id,m_id,renshu,in_time,daynum,foregift,chk_no,remark)";
+		String sql = "insert into hotel_livein (in_no,r_no,r_type_id,c_type_id,m_id,renshu,in_time,daynum,foregift,chk_no,remark)";
 		Object[] obj = new Object[]{liveIn.getIn_no(),liveIn.getR_no(),liveIn.getR_type_id(),liveIn.getC_type_id(),liveIn.getM_id(),
 					liveIn.getRenshu(),liveIn.getIn_time(),liveIn.getDaynum(),liveIn.getForegift(),liveIn.getChk_no(),liveIn.getRemark()};
 		int n = update(sql, obj);
